@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- 上述meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <title>记账</title>
+</head>
+<body>
+<div class="container">
+    <div class="col">
+        <h1>so fking good!!!</h1>
+
+        <form action="/salary/" method="post">
+            {% csrf_token %}
+            <p>
+                {% for p in person_all %}
+                    <label class="checkbox-inline">
+                        <input type="checkbox" id="inlineCheckbox1" value="option1"> {{ p }}
+                    </label>
+                {% endfor %}
+                <label for="person">姓名：</label>
+                <select name="person" class="form-control">
+                    {% for p in person_all %}
+                        <option>{{ p }}</option>
+                    {% endfor %}
+                </select>
+            </p>
+            <p>
+                <label for="work_detail_all">工作：</label>
+                <select name="work_detail" class="form-control">
+                    {% for w in work_detail_all %}
+                        <option>{{ w }}</option>
+                    {% endfor %}
+                </select>
+            </p>
+            <p>
+                <label for="id_username">件数：</label>
+                <input type="text" id="id_username" name="unit" class="form-control" placeholder="输入今日件数" autofocus
+                       required/>
+            </p>
+
+            <input type="submit" value="确定" class="btn btn-primary btn-sm active">
+        </form>
+    </div>
+</div>
+{#    以下三者的引用顺序是固定的#}
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+<script src="https://cdn.bootcss.com/popper.js/1.15.0/umd/popper.js"></script>
+<script src="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+</body>
+</html>
